@@ -223,6 +223,6 @@ header h1 {
 }
 
 #summary-stats .text {
-  @apply uppercase text-[0.8rem] text-[#30273a] mt-[-0.7rem] tracking-[0.1rem] ml-[0.2rem];
+  @apply uppercase text-[0.8rem] text-[#30273a] mt-[0.7rem] tracking-[0.1rem] ml-[0.2rem];
   font-family: "Roboto Condensed", sans-serif;
 }
