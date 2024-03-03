@@ -1,29 +1,228 @@
+/*
+  Based on TailwindCSS recommendations,
+  consider using classes instead of the `@apply` directive
+  @see https://tailwindcss.com/docs/reusing-styles#avoiding-premature-abstraction
+*/
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:wght@400;700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  * {
-    @apply box-border
-  }
-  
-  html {
-    @apply leading-6 text-[#efe9e7] h-full;
-    font-synthesis: none;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-text-size-adjust: 100%;
-  }
-  
-  body {
-    @apply m-0 p-2 bg-darkOrange bg-fixed bg-cover bg-center;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 800 400'%3E%3Cdefs%3E%3CradialGradient id='a' cx='396' cy='281' r='514' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23ff8c00'/%3E%3Cstop offset='1' stop-color='%23ffad42'/%3E%3C/radialGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='400' y1='148' x2='400' y2='333'%3E%3Cstop offset='0' stop-color='%23ffd8a8' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23ffd8a8' stop-opacity='0.5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23a)' width='800' height='400'/%3E%3Cg fill-opacity='0.4'%3E%3Ccircle fill='url(%23b)' cx='267.5' cy='61' r='300'/%3E%3Ccircle fill='url(%23b)' cx='532.5' cy='61' r='300'/%3E%3Ccircle fill='url(%23b)' cx='400' cy='30' r='300'/%3E%3C/g%3E%3C/svg%3E");
-  }
-  
-  header h1 {
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
+* {
+  @apply box-border;
 }
 
+html {
+  @apply leading-normal text-[#ebe7ef] h-full;
+  font-family: "Roboto", sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  /* min-height: 100rem; */
+}
+
+body {
+  @apply bg-[#1d0433] bg-fixed bg-cover bg-center m-0 p-8;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 800 400'%3E%3Cdefs%3E%3CradialGradient id='a' cx='396' cy='281' r='514' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%237616DD'/%3E%3Cstop offset='1' stop-color='%231D0433'/%3E%3C/radialGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='400' y1='148' x2='400' y2='333'%3E%3Cstop offset='0' stop-color='%2318E0FF' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%2318E0FF' stop-opacity='0.5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23a)' width='800' height='400'/%3E%3Cg fill-opacity='0.4'%3E%3Ccircle fill='url(%23b)' cx='267.5' cy='61' r='300'/%3E%3Ccircle fill='url(%23b)' cx='532.5' cy='61' r='300'/%3E%3Ccircle fill='url(%23b)' cx='400' cy='30' r='300'/%3E%3C/g%3E%3C/svg%3E");
+  /* background: linear-gradient(180deg, #22182f 0%, #2c2437 100%); */
+}
+
+header {
+  @apply text-center mx-0 my-8 flex flex-col justify-center items-center;
+}
+
+header img {
+  @apply w-36 h-36 rounded-3xl;
+  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.6));
+}
+
+header h1 {
+  @apply font-[bold] text-[2.5rem] tracking-[0.6rem] uppercase m-0;
+  font-family: "Roboto Condensed", sans-serif;
+  background: linear-gradient(90deg, #e781fb 40%, #8e76fa 60%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#last-try {
+  @apply max-w-screen-sm text-[0.8rem] text-center mx-auto my-8;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+#last-try h2 {
+  @apply text-base text-[#9c7fd3] uppercase m-0;
+}
+
+#last-try ul {
+  @apply flex gap-4 text-xl text-[#a690c5] m-0 p-0;
+  list-style: none;
+}
+
+#quiz {
+  @apply max-w-[50rem] shadow-[1px_1px_8px_4px_rgba(12,5,32,0.6)] text-center m-auto p-8 rounded-lg;
+  background: linear-gradient(180deg, #3e2a60 0%, #321061 100%);
+  /* box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, 0.6); */
+}
+
+#question-overview {
+  @apply text-[0.8rem] text-[#9082a3] uppercase m-0;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+#question progress {
+  @apply w-6/12 h-2 m-0 rounded-3xl;
+  background: #9e5ef8;
+}
+
+#question progress::-webkit-progress-bar {
+  @apply rounded-3xl;
+  background: #6a558a;
+}
+
+#question progress::-webkit-progress-value {
+  @apply rounded-3xl;
+  background: #9e5ef8;
+}
+
+#question progress.answered {
+  background: #f8e59c;
+}
+#question progress.answered::-webkit-progress-value {
+  background: #f8e59c;
+}
+#question progress.answered::-webkit-progress-bar {
+  background: #6a558a;
+}
+
+#question h2 {
+  @apply text-2xl font-[normal] text-[#c1b2dd] mt-2 mb-10 mx-0;
+  font-family: "Roboto", sans-serif;
+}
+
+#answers {
+  @apply flex flex-col items-center gap-2 m-0 p-0;
+  list-style: none;
+}
+.answer {
+  @apply w-[90%] mx-auto my-0;
+}
+
+.answer button {
+  @apply text-black inline-block w-full text-[0.9rem] cursor-pointer transition-all duration-[0.2s] ease-[ease-in-out] px-8 py-4 rounded-3xl border-[none];
+  font-family: "Roboto Condensed", sans-serif;
+  /* background: linear-gradient(180deg, #81f1fb 0%, #73d2f8 100%); */
+  background: #6cb7f5;
+}
+
+.answer button:hover,
+.answer button:focus {
+  @apply text-[white];
+  /* background: linear-gradient(180deg, #bf48f6 0%, #9b50f2 100%); */
+  background: #9d5af5;
+  /* box-shadow: 0 0 4px 2px rgba(255, 200, 60, 0.8); */
+}
+
+.answer button.selected {
+  @apply text-[#2c203d];
+  /* background: linear-gradient(180deg, #fbda81 0%, #f8b173 100%); */
+  background: #f5a76c;
+}
+
+.answer button.correct {
+  @apply text-[#2c203d];
+  /* background: linear-gradient(180deg, #a1fa61 0%, #52d482 100%); */
+  background: #5af59d;
+}
+
+.answer button.wrong {
+  @apply text-[#2c203d];
+  /* background: linear-gradient(180deg, #f96fb1 0%, #f52b8c 100%); */
+  background: #f55a98;
+}
+
+#skip-action {
+  @apply mt-8;
+}
+
+#skip-action button {
+  @apply text-base text-[#9082a3] cursor-pointer border-[none];
+  font-family: "Roboto Condensed", sans-serif;
+  background: transparent;
+}
+
+#skip-action button:hover,
+#skip-action button:focus {
+  @apply text-[#c7bfd6];
+}
+
+#summary {
+  @apply max-w-screen-sm text-[#191321] shadow-[1px_1px_8px_1px_rgba(0,0,0,0.6)] animate-[slide-in-from-bottom_0.7s_ease-out] mx-auto my-8 p-8 rounded-lg;
+  background: linear-gradient(180deg, #a17eda 0%, #895fc4 100%);
+}
+
+#summary img {
+  @apply block w-32 h-32 object-contain mt-0 mb-4 mx-auto p-4 rounded-[50%] border-2 border-solid border-[#3a2353];
+  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.6));
+  background: #c18cfa;
+}
+
+#summary h2 {
+  @apply text-5xl text-center uppercase text-[#3a2353] m-0;
+  font-family: "Roboto", sans-serif;
+}
+
+#summary ol {
+  @apply text-center mx-auto my-8 p-0;
+  list-style: none;
+}
+
+#summary li {
+  @apply mx-0 my-8;
+}
+
+#summary h3 {
+  @apply text-base flex justify-center items-center text-[#d8cde8] w-8 h-8 mx-auto my-0 rounded-[50%];
+  font-family: "Roboto Condensed", sans-serif;
+  background: #2c203d;
+}
+
+#summary .question {
+  @apply text-base text-[#30273a] mx-0 my-1;
+}
+
+#summary .user-answer {
+  @apply font-[bold] text-[#251e2f] mx-0 my-1;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+#summary .user-answer.correct {
+  @apply text-[#054e37];
+}
+
+#summary .user-answer.wrong {
+  @apply text-[#730b4b];
+}
+
+#summary .user-answer.skipped {
+  @apply text-[#d1baf2] font-[normal];
+}
+
+#summary-stats {
+  @apply flex gap-12 w-3/5 mx-auto my-8 pb-8 border-b-2 border-b-[#594276] border-solid;
+}
+
+#summary-stats p {
+  @apply flex-1 flex flex-col m-0;
+}
+
+#summary-stats .number {
+  @apply text-5xl text-[#594276];
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+#summary-stats .text {
+  @apply uppercase text-[0.8rem] text-[#30273a] mt-[-0.7rem] tracking-[0.1rem] ml-[0.2rem];
+  font-family: "Roboto Condensed", sans-serif;
+}
