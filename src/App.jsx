@@ -1,12 +1,12 @@
 import Header from "./components/Header";
-import Quiz from "./components/Quiz";
+import QuestionsList from "./components/QuestionsList";
 
 function App() {
   return (
     <>
       <Header />
       <main>
-        <Quiz />
+        <QuestionsList />
       </main>
     </>
   );

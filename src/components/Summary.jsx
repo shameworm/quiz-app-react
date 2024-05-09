@@ -1,11 +1,10 @@
 import QuizCompleteImg from "../assets/quiz-complete.png";
+import CrossImg from "../assets/cross.svg";
 
-import QUESTIONS from "../questions.js";
-
-export default function Summary({ userAnswers }) {
+export default function Summary({ userAnswers, questions, onDropQuestion }) {
   const skippedAnswers = userAnswers.filter((answer) => answer === null);
   const correctAnswers = userAnswers.filter(
-    (answer, index) => answer === QUESTIONS[index].answers[0]
+    (answer, index) => answer === questions[index].answers[0]
   );
 
   const skippedAnswersShare = Math.round(
@@ -15,10 +14,19 @@ export default function Summary({ userAnswers }) {
     (correctAnswers.length / userAnswers.length) * 100
   );
   const wrongAnswersShare = 100 - skippedAnswersShare - correctAnswersShare;
-  
+
+  const handleQuit = () => {
+    
+  };
+
   return (
     <div id="summary">
-      <img src={QuizCompleteImg} alt="Trophy Icon" />
+      <div id="cross">
+        <button onClick={onDropQuestion}>
+          <img src={CrossImg} />
+        </button>
+      </div>
+      <img src={QuizCompleteImg} alt="Trophy Icon" className="trophy" />
       <h2>Quiz Completed</h2>
       <div id="summary-stats">
         <p>
@@ -40,7 +48,7 @@ export default function Summary({ userAnswers }) {
 
           if (answer === null) {
             cssClass += " skipped";
-          } else if (answer === QUESTIONS[index].answers[0]) {
+          } else if (answer === questions[index].answers[0]) {
             cssClass += " correct";
           } else {
             cssClass += " wrong";
@@ -49,7 +57,7 @@ export default function Summary({ userAnswers }) {
           return (
             <li key={index}>
               <h3>{index + 1}</h3>
-              <p className="question">{QUESTIONS[index].text}</p>
+              <p className="question">{questions[index].text}</p>
               <p className={cssClass}>{answer ?? "Skipped"}</p>
             </li>
           );

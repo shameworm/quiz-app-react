@@ -2,13 +2,12 @@ import { useState, useCallback } from "react";
 
 import Question from "./Question.jsx";
 import Summary from "./Summary.jsx";
-import QUESTIONS from "../questions.js";
 
-export default function Quiz() {
+export default function Quiz({ questions, onDropQuestion }) {
   const [userAnswers, setUserAnswers] = useState([]);
 
   const activeQuestionIndex = userAnswers.length;
-  const quizIsComplete = activeQuestionIndex === QUESTIONS.length;
+  const quizIsComplete = activeQuestionIndex === questions.length;
 
   const handleSelectAnswer = useCallback(function handleSelectAnswer(
     selectedAnswer
@@ -25,7 +24,7 @@ export default function Quiz() {
   );
 
   if (quizIsComplete) {
-    return <Summary userAnswers={userAnswers} />
+    return <Summary userAnswers={userAnswers} questions={questions} onDropQuestion={onDropQuestion}/>;
   }
 
   return (
@@ -35,6 +34,7 @@ export default function Quiz() {
         index={activeQuestionIndex}
         onSelectAnswer={handleSelectAnswer}
         onSkipAnswer={handleSkipAnswer}
+        questions={questions}
       />
     </div>
   );
